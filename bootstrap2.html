@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bootstrap 문장 태그</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+
+    <style>
+        div{border: 1px solid tomato;}
+        .col{border: 1px solid green;}
+        p{color: gray;}
+    </style>
+
+</head>
+<body>
+    <div class="row">
+        <div class="col">1</div>
+        <div class="col">2</div>
+        <div class="col">3</div>
+    </div>
+    
+    
+        <!-- 부트스트랩의 클래스명
+        .col-숫자       ( >576 미만 ) 
+        .col-sm-숫자    ( <=576 이상 )
+        .col-md-숫자    ( <=768 이상 )
+        .col-lg-숫자    ( >=992 이상 )
+        .col-xl-숫자    ( >=1200 이상 )
+        .col-xxl-숫자   ( >=1400 이상 ) -->
+        
+    <div class="row">
+        <div class="col-sm-3">col1</div>
+        <div class="col-sm-3">col2</div>
+        <div class="col-sm-3">col3</div>
+        <div class="col-sm-3">col4</div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-1 col-sm-">col1</div>
+        <div class="col-md-2">col2</div>
+        <div class="col-md-5">col3</div>
+        <div class="col-md-4">col4</div>
+    </div>
+
+    <div class="container">
+        <h1>h1 bootstrap headeing</h1>
+        <h2>h1 bootstrap headeing</h2>
+        <h3>h1 bootstrap headeing</h3>
+        <h4>h1 bootstrap headeing</h4>
+        <h5>h1 bootstrap headeing</h5>
+        <h6>h1 bootstrap headeing</h6>
+        
+        <h1 class="display-1">dispay 1 is 5rem</h1>
+        <h1 class="display-2">dispay 2 is 4.5rem</h1>
+        <h1 class="display-3">dispay 3 is 4rem</h1>
+        <h1 class="display-4">dispay 4 is 3.5rem</h1>
+        <h1 class="display-5">dispay 5 is 3rem</h1>
+        <h1 class="display-6">dispay 6 is 2.5rem</h1>
+
+        <p> <mark>Lorem ipsum dolor sit amet  consectetur </mark>adipisicing elit. Consectetur, nostrum magni fuga rerum delectus ratione, dolorem consequatur blanditiis illo ex dolores tempora corrupti officiis, eveniet dicta corporis quisquam fugiat! Voluptas!</p>
+        <p> <del>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur,</del> nostrum magni fuga rerum delectus ratione, dolorem consequatur blanditiis illo ex dolores tempora corrupti officiis, eveniet dicta corporis quisquam fugiat! Voluptas!</p>
+        <p> <s>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, nostrum magni fuga rerum delectus ratione,</s> dolorem consequatur blanditiis illo ex dolores tempora corrupti officiis, eveniet dicta corporis quisquam fugiat! Voluptas!</p>
+        <p> <u>Lorem ipsum dolor sit amet consectetur adipisicing elit.</u> Consectetur, nostrum magni fuga rerum delectus ratione, dolorem consequatur blanditiis illo ex dolores tempora corrupti officiis, eveniet dicta corporis quisquam fugiat! Voluptas!</p>
+        <p> <ins>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, nostrum magni</ins> fuga rerum delectus ratione, dolorem consequatur blanditiis illo ex dolores tempora corrupti officiis, eveniet dicta corporis quisquam fugiat! Voluptas!</p>
+        <p> <small>Lorem ipsum dolor sit amet consectetur adipisicing elit.</small> Consectetur, nostrum magni fuga rerum delectus ratione, dolorem consequatur blanditiis illo ex dolores tempora corrupti officiis, eveniet dicta corporis quisquam fugiat! Voluptas!</p>
+        <p> <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, nostrum magni fuga rerum delectus ratione,</strong> dolorem consequatur blanditiis illo ex dolores tempora corrupti officiis, eveniet dicta corporis quisquam fugiat! Voluptas!</p>
+        <p> <abbr title="World Health Organization">WHO</abbr>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, nostrum magni fuga rerum delectus ratione, dolorem consequatur blanditiis illo ex dolores tempora corrupti officiis, eveniet dicta corporis quisquam fugiat! Voluptas!</p>
+        
+        <blockquote class="blockquote">
+            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur, nostrum magni fuga rerum delectus ratione, 
+                dolorem consequatur blanditiis illo ex dolores tempora corrupti officiis, eveniet dicta corporis quisquam fugiat! Voluptas!
+            </p>
+            <p class="blockquote-footer">Lorem ipsum </p>
+        </blockquote>
+
+        <dl>
+            <dt>coffee</dt>
+            <dd>-black and ice and hot</dd>
+            <dt>mlik</dt>
+            <dd>-black and ice and hot</dd>
+        </dl>
+
+        <p>
+            코드라고 알려주는 코드태그 <br>
+            <code>span</code>
+            <code>section</code>
+            <code>div</code>
+        </p>
+
+        <p>
+            키보드모양으로 나타내는 <code>kbd</code>태그 <br>
+            use <kbd>ctrl + p</kbd> to print </p>
+
+
+    </div>
+        
+</body>
+</html>
