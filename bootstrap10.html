@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>모달팝업</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Modal popup</h1>
+        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#mymodal">open modal</button>
+
+    </div>
+
+    <div class="modal fade" id="mymodal">
+        <div class="modal-dialog modal-dialog-centered">
+            <!-- ↑↑↑↑↑↑↑↑↑ -->
+            <!-- 기본너비 500 -->
+            <!-- modal-sm ; 최대너비 300 -->
+            <!-- modal-lg ; 최대너비 800 -->
+            <!-- modal-xl ; 최대너비 1140 -->
+            <!-- modal-fullscreen ; 전체화면 -->
+            <!-- modal-fullscreen-sm-down ; 567미만 -->
+            <!-- modal-fullscreen-mb-down ; 768이상 -->
+            <!-- modal-fullscreen-lg-down ; 992이상 -->
+            <!-- modal-fullscreen-xl-down ; 1200이상 -->
+            <!-- modal-fullscreen-xxl-down ; 1400이상 -->
+            <!-- modal-dialog-centered ; 정중앙위치 -->
+            <!-- modal-dialog-scrollable ; 스크롤 -->
+
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3>Modal Title</h3>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div> <!-- modal-header -->
+                    <div class="modal-body">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui et necessitatibus deleniti quis
+                        excepturi sit mollitia, suscipit eveniet impedit? Neque ad non adipisci iusto, vel reiciendis
+                        ducimus sint expedita assumenda?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui et necessitatibus deleniti quis
+                        excepturi sit mollitia, suscipit eveniet impedit? Neque ad non adipisci iusto, vel reiciendis
+                        ducimus sint expedita assumenda?
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui et necessitatibus deleniti quis
+                        excepturi sit mollitia, suscipit eveniet impedit? Neque ad non adipisci iusto, vel reiciendis
+                        ducimus sint expedita assumenda?
+                    </div> <!-- modal-body -->
+                <div class="modal-footer">
+                    <button class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                </div> <!-- modal-footer -->
+            </div> <!-- modal-content -->
+        </div>
+    </div> <!-- modal -->
+
+
+</body>
+
+</html>

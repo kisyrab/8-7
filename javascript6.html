@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8/13자바스크립트-이미지</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+
+        //스크립트로 마우스오버했을때 사진변경하기 box2
+        $(function(){
+            $(".box2 img").hover(function(){
+                var bg2 = $(this).attr("data-bg2");
+                $(this).attr("src", bg2);
+            }, function(){
+                var bg1 = $(this).attr("data-bg")
+                $(this).attr("src", bg1);
+            })//
+        })//j
+    </script>
+
+
+
+    <style>
+        img{width: 10%;}
+        .container{
+            border: 1px solid #ddd;
+            width: 800px; height: 300px;
+            margin: 100px auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>첫번째 그림을 눌러보세요</h2>
+        <img src="images/pinktable.jpg" alt="bg" id="pinktable">
+        <img src="images/1111.jpg" alt="home" class="bg">
+        <img src="images/1112.jpg" alt="home" class="bg">
+        <img src="images/1113.jpg" alt="home" class="bg">
+        <img src="images/1114.jpg" alt="home" class="bg">
+    </div>
+
+
+    <div class="box">
+        <h2>마우스를 오버해보세요</h2>
+        <img src="images/icon01.png" alt="01" id="person">
+    </div>
+
+
+    <div class="box2">
+        <img src="images/1111.jpg" alt="1111" class="shape" data-bg="images/1111.jpg" data-bg2="images/1112.jpg">
+        <img src="images/1112.jpg" alt="1111" class="shape" data-bg="images/1112.jpg" data-bg2="images/1114.jpg">
+        <img src="images/1113.jpg" alt="1111" class="shape" data-bg="images/1113.jpg" data-bg2="images/1111.jpg">
+    </div>
+
+
+
+    <script>
+        let pinktable1 = document.querySelector("#pinktable");
+        console.log(pinktable1)
+        //또는 
+        // let pinktable2 = document.getElementById("pinktable");
+        // console.log(pinktable2)
+        
+        // pinktable1.onclick = function(){
+            //     alert("이미지를 클릭했습니다.")
+            // }
+        // pinktable1.onclick =  pic
+        // function pic(){
+        //     pinktable1.src = "images/home.jpg";
+        // }
+            
+        pinktable1.onclick = function(event){
+            console.log(event);
+            alert("이벤트 유형 : " + event.type + " , 이벤트 발생 위치 : " + event.pageX + " , " + event.pageY)
+            alert("클릭한 이미지 파일은 : " + this.src)
+            alert("이미지 소스" + pinktable1.getAttribute("src"))
+        }
+
+
+
+        
+            // let pinktable2 = document.getElementById("pinktable");
+            // console.log(pinktable2)
+
+        
+        
+        // let bg = document.querySelectorAll(".bg")
+        // console.log(bg)
+        // console.log(bg[0])
+        // console.log(bg.length)
+
+
+        let person = document.getElementById("person");
+        person.addEventListener("mouseover" , changePic);
+        person.addEventListener("mouseout" , originPic);
+
+        function changePic(){
+            person.src = "images/icon02.png"
+        }
+        function originPic(){
+            person.src = "images/icon01.png"
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

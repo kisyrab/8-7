@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업</title>
+</head>
+<body>
+    <!-- <p onclick="openWin()">문서를 열면 팝업 창이 표시됩니다.</p> -->
+
+    <script>
+
+        // function openWin(){
+        //     myWin = window.open("javascript4.html" , "_blank" , "width=500 , height=400, left=300, top=200");
+        // }
+
+        // function closeWin(){
+        //     myWin.close();
+        // }
+        
+        // window.open("javascript4.html" , "_blank" , "width=500 , height=400") //새창으로 열어주세요
+        // window.open("javascript4.html" , "pop" , "width=500 , height=400")
+        // window.open("javascript4.html" , "_parent" , "width=500 , height=400")
+        // window.open("javascript4.html" , "_self" , "width=500 , height=400")
+
+    </script>
+
+    <h1>책읽기</h1>
+    <p>
+        <span class="accent" id="result"></span>
+        일 연속으로 <br> 책읽기를 달성했습니다.
+    </p>
+
+    <script>
+        let now = new Date (); //오늘 날짜
+        let firstDay = new Date("2024-01-01"); // 시작 날짜
+        let toNow = now.getTime(); //오늘까지 지난 시간(밀리초 단위)
+        let toFirst =  firstDay.getTime();//첫 날까지 지난 시간(밀리초)
+
+        let passTime = toNow - toFirst; //첫날부터 오늘까지 지난 시간(밀리초)
+
+        passTime = Math.round( passTime / (1000*60*960*24))
+
+        document.querySelector("#result").innerText = passTime;
+
+    </script>
+
+
+
+
+
+</body>
+</html>

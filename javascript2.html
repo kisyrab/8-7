@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{text-align: center;}
+        #header{color: cornflowerblue;}
+        #text{color: gray; font-size: 1.5rem;}
+    </style>
+
+</head>
+<body>
+    <script>
+        // let now =new Date();
+        // document.write(now + "<br>");
+
+        // let year = now.getFullYear();
+        // document.write(year + "<br>");
+
+        // let mon = now.getMonth(); //1월(0)~12월(11)
+        // document.write(mon+1 + "<br>");
+
+        // let d_day = now.getDate(); //날짜 1~31
+        // document.write(d_day = "<br>")
+
+        // let day = now.getDay(); //요일 월요일(1)
+        // document.write(day = "<br>")
+
+        // switch(day){
+        //     case 1:
+        //         document.write("월요일"); break;
+        //     case 2:
+        //         document.write("화요일"); break;
+        //     case 3:
+        //         document.write("수요일"); break;
+        //     case 4:
+        //         document.write("목요일"); break;
+        //     case 5:
+        //         document.write("금요일"); break;
+        //     case 6:
+        //         document.write("토요일"); break;
+        //     default : document.write("일요일"); break;
+        // }
+
+        // let day_array=["월","화","수","목","금","토","일"]
+        // document.write(day_array[day-1] + "요일")
+
+        // let hour = now.getHours();
+        // document.write(hour + "시" + "<br>")
+        
+        // let minute = now.getMinutes();
+        // document.write(minute + "분" + "<br>")
+        
+        // let sec = now.getSeconds();
+        // document.write(sec + "초" + "<br>")
+        
+        // let now = new Date()
+        // let display = now.toLocaleTimeString();
+        // document.write("현재시각은" + display)
+
+    
+
+    // <!-- <h1 id="header">자바스크립트</h1>
+    // <p id="text">위 텍스트를 클릭</p>
+
+    // <script>
+    //     let head = document.querySelector("#header");
+
+    //     head.onclick=function(){
+    //         head.style.color="red"
+    //     }
+
+    // <!-- <h1 id="header">구구단</h1> -->
+    
+
+    //     let birth_year = prompt("태어난 연도 입력" , "예)1999")
+        
+    //     const clock = document.querySelector("#header");
+    //     function getClock(){
+    //         const d = new Date();
+    //         h = d.getHours();
+    //         m = d.getMinutes();
+    //         s = d.getSeconds();
+    //         clock.innerText = h + ":" + m + ":" + s;
+    //     }
+    //     getClock();
+    //     setInterval(getClock, 1000);
+
+        let i,j;
+        for(i=1;i<9;i++){
+            document.write("<h3>"+ i +" 단</h3>");
+            for(j=1;i<10;j++){
+                document.write(i+"X"+j+"="+"i*j" +"<br>")
+            }
+        }
+
+    </script>
+
+</body>
+</html>

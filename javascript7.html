@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 이미지슬라이드</title>
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+
+    </script>
+    <style>
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        /* img{rotate: 90deg;} */
+        #slideShow{
+            width: 1400px; height: 500px;
+            margin: 100px auto;
+            position: relative;
+            overflow: hidden;
+        }
+        #slides{position: absolute;}
+        #slides img{width: 100%; float: left;}
+
+        button{
+            position: absolute;
+            height: 100%; top: 0;
+            border: none;
+            background-color: transparent;
+        }
+        button:hover{background-color: #ddddddd2; cursor: pointer;}
+        #prev{left: 0;}
+        #next{right: 0;}
+    </style>
+
+
+
+</head>
+<body>
+    <div id="slideShow">
+        <div id="slides">
+            <img src="images/1111.jpg" alt="111">
+            <img src="images/1112.jpg" alt="111">
+            <img src="images/1113.jpg" alt="111">
+            <img src="images/1114.jpg" alt="111">
+
+            <button id="prev">prev</button>
+            <button id="next">next</button>
+        </div>
+    </div>
+    <script>
+        let slides = document.querySelectorAll("#slides > img"); //[배열형식]으로 처리됨
+        let prev = document.getElementById("prev");
+        let next = document.getElementById("next");
+        let current = 0; //현재 인덱스 번호 0 1 2
+
+        showSlide(current);
+        prev.onclick = prevSlide;
+        next.onclick = nextSlide;
+                        //n은 매개변수
+        function showSlide(n){
+            for(let i = 0; i < slides.length -1 ; i++){
+                slides[i].style.display = "none";
+            }
+                slides[n].style.display = "block";
+        }
+
+        function prevSlide(){
+            if(current>0){
+                current--;
+            }else{
+                current = slides.length -1;
+            }
+            showSlide(current);
+        }
+        function nextSlide(){
+            if(current < slides.length-1){
+                current++;
+            }else{
+                current = 0;
+            }
+            showSlide(current);
+        }
+    </script>
+</body>
+</html>

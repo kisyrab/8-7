@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8/12 자바스크립트</title>
+    <style>
+        .item{
+            width: 500px; height: auto;
+            padding: 15px 20px;
+            border: 4px double hotpink;
+            margin: 10px auto;
+            position: relative;
+        }
+        button{background-color: #ffffff9a; padding: 5px; border: 1px solid #ccc; font-size: 0.8em;}
+
+        .over{
+            position: absolute;
+            left: 30px; bottom: 30px;
+        }
+
+        .detail{
+            width: 500px; 
+            text-align: left;
+            line-height: 1.8;
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div class="item">
+        <img src="images/home.jpg" alt="home">
+        <button class="over" id="open">상세 설명 보기</button>
+        <div class="detail" id="desx">
+            <h4>상세설명</h4>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, quibusdam quas dolor officia accusantium
+                temporibus, facere, error praesentium asperiores rerum amet itaque impedit officiis nulla quia veritatis
+                reprehenderit provident est.
+            </p>
+            <button id="close">상세 설명 닫기</button>
+        </div>
+    </div>
+
+    <script>
+
+        //함수에 이벤트를 직접 붙이기
+        document.querySelector("#open").onclick = function(){
+            document.querySelector(".detail").style.display = "block";
+            document.querySelector("#open").style.display = "none";
+        }
+
+        document.querySelector("#close").onclick = function(){
+            document.querySelector(".detail").style.display = "none";
+            document.querySelector("#open").style.display = "block"
+        }
+
+
+        //코드에 만든 함수를 직접 호출하기 onclick="showDetail()" 사용
+        function showDetail(){
+            document.querySelector(".detail").style.display = "block";
+            document.querySelector("#open").style.display = "none";
+        }
+        function hideDetail(){
+            document.querySelector(".detail").style.display = "none";
+            document.querySelector("#open").style.display = "block"
+        }
+
+
+    </script>
+
+</body>
+
+</html>
