@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8/14 자바스크립트-글자타이핑-지우면서</title>
+</head>
+
+    <style>
+        @font-face {
+        font-family: 'HancomMalangMalang-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomMalangMalang-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+    }
+        /* *{margin: 0; padding: 0;} */
+        body{font-family: 'HancomMalangMalang-Regular';}
+        ul,li{list-style: none;}
+        .typing_text{
+            display: none;
+        }
+        .typing{
+            display: inline-block;
+            animation: cursor 0.5s infinite;
+        }
+        @keyframes cursor{
+            0%{border-right: 1px solid #fff;}
+            50%{border-right: 1px solid #f0f;}
+            100%{border-right: 1px solid #fff;}
+        }
+    </style>
+
+
+<body>
+
+    <h2>회전목마 (Carousel)</h2>
+    <div class="typing_text">
+        <ul>
+            <li>회전목마는 기둥 둘레의 원판 위에 설치한 목마에 사람을 태워 빙글빙글 돌리는 놀이기구이다. </li>
+            <li>회전목마의 좌석은 목마나 다른 동물의 형태로 되어 있으며, 위아래로 움직인다. </li>
+            <li>회전목마에는 주로 서커스 음악이 같이 나온다. </li>
+            <li>회전목마는 다양한 이름으로 불린다.</li>
+        </ul>
+    </div> <!-- typing_text -->
+    <p class="typing"></p>
+
+
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        $(function(){
+            let typingIndex = 0; //타이핑 될 글자의 인덱스
+            let liIndex = 0; // li의 인덱스 0 1 2 
+            let liLength = $(".typing_text > ul > li").length; // li개수
+
+            // 타이핑 될 텍스트를 가져오기
+            let typingText = $(".typing_text > ul > li").eq(liIndex).text(); //타이핑될 li 번째 내용 가져오기
+            console.log(typingText);
+            typingText = typingText.split("") //한글자씩 잘라(split) [배열로 들어옴]
+            console.log(typingText);
+            console.log(typingText.length);
+            
+            let time = setInterval(typing,100); // setInterval(함수이름,반복시간)
+            function typing(){
+                    //타이핑 될 텍스트 길이만큼 반복하기 위해 if문 사용
+                if(typingIndex < typingText.length){
+                    $(".typing").append(typingText[typingIndex]); //한글자씩 이어서 뒤에 붙여주기
+                    typingIndex++;
+                }else{ //한문장이 끝나면 다음문장(li)로 넘어가기 위한 if문. 마지막이 끝나면 다시 처음문장으로
+                    if(liIndex == liLength-1){
+                        liIndex = 0;
+                    }else{
+                        liIndex++;
+                    }
+                    console.log(liIndex);
+
+                    //다음문장을 타이핑 하기 위한 셋팅
+                    typingIndex = 0; //타이핑 될 글자의 인덱스를 다시 0으로 초기화
+                    typingText = $(".typing_text > ul > li").eq(liIndex).text(); //두번째 li를 읽도록 명령
+
+                    //다음 문장 타이핑 전 1초 쉰다. 멈춤
+                    clearInterval(time);
+
+                    //다음 문장 가져오기
+                    setTimeout(function(){
+                        $(".typing").text("");
+                        time = setInterval(typing,100);
+                    },1000)
+
+
+                }//if
+            } //typing()
+
+
+
+
+
+        })//j
+    </script>
+    
+    
+    
+</body>
+
+</html>

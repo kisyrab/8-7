@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>8/14 자바스크립트-글자타이핑-엔터치면서</title>
+
+    <style>
+        @font-face {
+        font-family: 'HancomMalangMalang-Regular';
+        src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2406-1@1.0/HancomMalangMalang-Regular.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+    }
+        /* *{margin: 0; padding: 0;} */
+        body{font-family: 'HancomMalangMalang-Regular';}
+        ul,li{list-style: none;}
+        .type_text{
+            display: none;
+        }
+        .typing ul li.on{
+            display: inline-block;
+            animation: cursor 0.5s infinite;
+        }
+        @keyframes cursor{
+            0%{border-right: 1px solid #fff;}
+            50%{border-right: 1px solid #3a3df8;}
+            100%{border-right: 1px solid #fff;}
+        }
+    </style>
+
+</head>
+<body>
+    <h2>회전목마 (Carousel)</h2>
+    <div class="type_text">
+        <ul>
+            <li>회전목마는 기둥 둘레의 원판 위에 설치한 목마에 사람을 태워 빙글빙글 돌리는 놀이기구이다. </li>
+            <li>회전목마의 좌석은 목마나 다른 동물의 형태로 되어 있으며, 위아래로 움직인다. </li>
+            <li>회전목마에는 주로 서커스 음악이 같이 나온다. </li>
+            <li>회전목마는 다양한 이름으로 불린다.</li>
+        </ul>
+    </div> <!-- type_text -->
+
+    <div class="typing">
+        <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div> <!-- typing -->
+
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        $(function(){
+            let liLength = $(".type_text > ul > li").length; 
+            let liIndex = 0;
+            let typingInd = 0; //타이핑될 글자의 인덱스 번호
+
+            //타이핑 될 텍스트를 가져오기
+            let typingTxt = $(".type_text > ul > li").eq(liIndex);
+            typingTxt = typingTxt.split("");
+            console.log(typingTxt);
+        }) //j
+    </script>
+
+</body>
+</html>
