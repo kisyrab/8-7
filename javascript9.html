@@ -20,7 +20,7 @@
         }
         .typing ul li.on{
             display: inline-block;
-            animation: cursor 0.5s infinite;
+            animation: cursor 0.3s infinite;
         }
         @keyframes cursor{
             0%{border-right: 1px solid #fff;}
@@ -58,9 +58,46 @@
             let typingInd = 0; //타이핑될 글자의 인덱스 번호
 
             //타이핑 될 텍스트를 가져오기
-            let typingTxt = $(".type_text > ul > li").eq(liIndex);
-            typingTxt = typingTxt.split("");
+            let typingTxt = $(".type_text > ul > li").eq(liIndex).text();
             console.log(typingTxt);
+            typingTxt = typingTxt.split(""); //[배열]
+            console.log(typingTxt);
+            
+            let count = typingTxt.length-1
+            console.log(count);
+
+            let time = setInterval(typing , 100) //반복동작
+            function typing(){
+                $(".typing ul li").removeClass("on")
+                $(".typing ul li").eq(liIndex).addClass("on");
+                if(typingInd <= count){
+                $(".typing ul li").eq(liIndex).append(typingTxt[typingInd])
+                typingInd++;
+            }else{
+                
+                if(liIndex <= liLength){
+                    //다음 문장으로 가기위해 인덱스를 1증가하기
+                    liIndex++;
+                    typingInd = 0;
+                    typingTxt = $(".type_text > ul > li").eq(liIndex).text();
+
+                    //1초 쉬기
+                    clearInterval(time)
+                    setTimeout(function(){
+                        time = setInterval(typing , 100)
+                    },1000);
+                }else if(liIndex == liLength){
+                    clearInterval(time);
+                    
+                }//
+            }
+            }// function
+            
+            if(liIndex == liLength){
+                $(".typing ul li").eq(liLength).addClass("on");
+            }
+
+
         }) //j
     </script>
 

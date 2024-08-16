@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>글자 반으로 나누기</title>
+
+    <style>
+        @font-face {
+            font-family: 'PartialSansKR-Regular';
+            src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2307-1@1.1/PartialSansKR-Regular.woff2') format('woff2');
+            font-weight: normal;
+            font-style: normal;
+        }
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        ul,li{list-style: none;}
+        html,body{height: 100vh;  width: 100vw;}
+        body{
+            background: rgb(133,133,133);
+            background: linear-gradient(356deg, rgb(54, 54, 54) 0%, rgba(0,0,0) 97%);
+            font-family: 'PartialSansKR-Regular';
+            position: fixed;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform-style: preserve-3d;
+            transform: perspective(60rem);
+        }
+        .menu_list{
+            font-size: 4rem;
+            line-height: 1.5;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .menu_list_item{
+            position: relative;
+            cursor: pointer;
+            color: transparent;
+        }
+
+        .menu_list_item::before{
+            content: "";
+            display: block;
+            position: absolute;
+            top: 49%;
+            left: -10%;
+            right: -10%;
+            height: 2px;
+            background-color: #ff0095;
+            z-index: 10;
+            /* width: 120%; */
+            transform: scale(0);
+            transition: all 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+
+        .mask{
+            display: block;
+            position: absolute;
+            top: 0; 
+            height: 49%;
+            color: #ff0095;
+            overflow: hidden;
+            transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+        .mask span{display: block;}
+
+        .mask + .mask{
+            top: 48.9%;
+            height: 51.1%;
+        }
+        .mask + .mask span{
+            transform: translateY(-49%);
+        }
+
+        .menu_list_item:hover .mask,
+        .menu_list_item:active .mask{
+            color: #fff;
+            transform: skewX(12deg) translateX(5px);
+        }
+
+        .menu_list_item:hover .mask+.mask,
+        .menu_list_item:active .mask+.mask{
+            color: #fff;
+            transform: skewX(12deg) translateX(5px);
+        }
+
+        .menu_list_item:hover::before,
+        .menu_list_item:active::before{
+            transform: scale(1);
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+    
+
+
+    
+    <div class="menu">
+        <ul class="menu_list" data-offset="10">
+            <li class="menu_list_item" data-offset="20">
+                HOME
+                <span class="mask"><span>HOME</span></span>
+                <span class="mask"><span>HOME</span></span>
+            </li>
+            <li class="menu_list_item" data-offset="16">
+                ABOUT
+                <span class="mask"><span>ABOUT</span></span>
+                <span class="mask"><span>ABOUT</span></span>
+            </li>
+            <li class="menu_list_item" data-offset="12">
+                WORK
+                <span class="mask"><span>WORK</span></span>
+                <span class="mask"><span>WORK</span></span>
+            </li>
+            <li class="menu_list_item" data-offset="8">
+                CONTACT
+                <span class="mask"><span>CONTACT</span></span>
+                <span class="mask"><span>CONTACT</span></span>
+            </li>
+        </ul>
+    </div>
+
+
+    <script src="js/jquery-3.7.1.js"></script>
+    <script>
+        $(function(){
+            // let menu = $(".menu_list");
+            // let item = $(".menu_list_item")
+
+            // w = $(window).width()
+            // h = $(window).height()
+
+            // $(window).on("mousemove" , function(e){
+            //     console.log(e)
+            //     //마우스위치
+            //     offsetX = e.pageX / w;
+            //     offsetY = e.pageY / h;
+
+            //     dy = e.pageY - h / 2;
+            //     dy = e.pageX - w / 2;
+
+            //     theta = Math.atan2(dy, dx);
+            //     angle = theta * 180 / Math.PI -90
+            //     offsetPoster = menu.data('offset')
+
+            //     // offsetPoster = menu.data("offset")
+            //     offsetPoster = menu.attr("data-offset")
+
+            //     transformPoster = 'translate3d(0,' + -offsetPoster *offsetX + 'px , 0) rotateX(' + -offsetPoster *offsetY + 'deg) rotateY(' + (offsetPoster*2) *offsetX + 'deg)';
+
+            //     if(angle<0){
+            //         angle = angle + 360;
+            //     }
+            //     menu.css({'transform' : transformPoster})
+
+            //     item.each(function(i){
+            //         let offsetLayer = $(this).data("offset") || 0;
+            //         transformPoster = 'translate3d(0,' + -offsetPoster *offsetX + 'px , 0) rotateX(' + -offsetPoster *offsetY + 'deg) rotateY(' + (offsetPoster*2) *offsetX + 'deg)';
+            //         $(this).css({'transform' : transformPoster})
+
+            //     })
+
+            // })
+
+//             var $menu = $('.Menu_list'),
+//     $item = $('.Menu_list_item'),
+//     w = $(window).width(), //window width
+//     h = $(window).height(); //window height
+
+// $(window).on('mousemove', function(e) {
+//   var offsetX = 0.5 - e.pageX / w, //cursor position X
+//       offsetY = 0.5 - e.pageY / h, //cursor position Y
+//       dy = e.pageY - h / 2, //@h/2 = center of poster
+//       dx = e.pageX - w / 2, //@w/2 = center of poster
+//       theta = Math.atan2(dy, dx), //angle between cursor and center of poster in RAD
+//       angle = theta * 180 / Math.PI - 90, //convert rad in degrees
+//       offsetPoster = $menu.data('offset'),
+//       transformPoster =  'translate3d(0, ' + -offsetX * offsetPoster + 'px, 0) rotateX(' + (-offsetY * offsetPoster) + 'deg) rotateY(' + (offsetX * (offsetPoster * 2)) + 'deg)'; //poster transform
+//     console.log('e.pageX :')
+
+
+//   //get angle between 0-360
+//   if (angle < 0) {
+//     angle = angle + 360;
+//   }
+
+//   //poster transform
+//   $menu.css('transform', transformPoster);
+
+//   //parallax for each layer
+//   $item.each(function() {
+//     var $this = $(this),
+//         offsetLayer = $this.data('offset') || 0,
+//         transformLayer = 'translate3d(' + offsetX * offsetLayer + 'px, ' + offsetY * offsetLayer + 'px, 20px)';
+
+//     $this.css('transform', transformLayer);
+//   });
+// });
+$(function () {
+
+var $menu = $('.menu_list'),
+    $item = $('.menu_list_item'),
+    w = $(window).width(), //window width
+    h = $(window).height(); //window height
+
+    $(window).on('mousemove', function (e) {
+                var offsetX = 0.5 - e.pageX / w, //cursor position X        
+                    offsetY = 0.5 - e.pageY / h, //cursor position Y
+                    dy = e.pageY - h / 2, //@h/2 = center of poster
+                    dx = e.pageX - w / 2, //@w/2 = center of poster
+                    theta = Math.atan2(dy, dx), //angle between cursor and center of poster in RAD
+                    angle = theta * 180 / Math.PI - 90, //convert rad in degrees
+                    offsetPoster = $menu.data('offset'),
+                    transformPoster = 'translate3d(0, ' + -offsetX * offsetPoster + 'px, 0) rotateX(' +(-offsetY * offsetPoster) + 'deg) rotateY(' + (offsetX * (offsetPoster * 2)) +
+                    'deg)'; //poster transform
+
+                    console.log('e.pageX :' , e.pageX);
+                    console.log("offsetX : ", offsetX);
+
+                //get angle between 0-360
+                if (angle < 0) {
+                    angle = angle + 360;
+                }
+
+                //poster transform
+                $menu.css('transform', transformPoster);
+
+                //parallax for each layer
+                $item.each(function () {
+                    var $this = $(this),
+                        offsetLayer = $this.data('offset') || 0,
+                        transformLayer = 'translate3d(' + offsetX * offsetLayer + 'px, ' + offsetY * offsetLayer + 'px, 20px)';
+
+                    $this.css('transform', transformLayer);
+                });
+            });
+
+
+
+}) //jquery
+
+        })//j
+    </script>
+
+
+
+</body>
+</html>
